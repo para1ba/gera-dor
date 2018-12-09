@@ -21,6 +21,7 @@ int main(void){
     program* anyProgram = NULL;
     funct* fun = NULL;
     command* anyCommand = NULL;
+    command* anotherCommand = NULL;
     treenode* anyExpression = NULL;
     treenode* aux1 = NULL;
     treenode* aux2 = NULL;
@@ -28,12 +29,20 @@ int main(void){
     anyProgram = newProgram();
     fun = newFunction("renanBoiola");
     insertFunctionOnProgram(anyProgram, fun);
-    anyCommand = newCommand(WHILE_STMT);
+    anyCommand = newCommand(IF_STMT);
     aux1 = insertNode(NUMBER, "1", NULL, NULL);
     aux2 = insertNode(NUMBER, "2", NULL, NULL);
     anyExpression = insertNode(PLUS, "\0", aux1, aux2);
     insertExpressionOnCommand(anyCommand, anyExpression);
     insertCommandsOnFunction(fun, anyCommand);
+
+    anotherCommand = newCommand(WHILE_STMT);
+    aux1 = insertNode(NUMBER, "3", NULL, NULL);
+    aux2 = insertNode(NUMBER, "6", NULL, NULL);
+    anyExpression = insertNode(DIV, "\0", aux1, aux2);
+    insertExpressionOnCommand(anotherCommand, anyExpression);
+    insertCommandOnCommand(anyCommand, anotherCommand, 1);
+    insertCommandOnCommand(anyCommand, anotherCommand, 2);
     printProgram(anyProgram);
 
     return 0;

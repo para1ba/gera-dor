@@ -176,6 +176,7 @@ void printCommand(command* anyCommand){
             printf("if ");
             printExpression(anyCommand->expression);
             printf("\n");
+            printf("ESPAÇO IF: \n");
             size = lenghtLista(anyCommand->field1);
             anyNode = getFirstNode(anyCommand->field1);
             for(i=0;i<size;i++){
@@ -185,6 +186,7 @@ void printCommand(command* anyCommand){
                 if(anyNode!=NULL)
                     printf("\n");
             }
+            printf("ESPAÇO ELSE: \n");
             size = lenghtLista(anyCommand->field2);
             anyNode = getFirstNode(anyCommand->field2);
             for(i=0;i<size;i++){
@@ -200,6 +202,7 @@ void printCommand(command* anyCommand){
             printf("while ");
             printExpression(anyCommand->expression);
             printf("\n");
+            printf("ESPAÇO DO: \n");
             size = lenghtLista(anyCommand->field1);
             anyNode = getFirstNode(anyCommand->field1);
             for(i=0;i<size;i++){
